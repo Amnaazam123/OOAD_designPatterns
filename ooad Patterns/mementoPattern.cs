@@ -109,7 +109,7 @@ namespace mementoFinalPattern
 			o.setContent("e");
 			h.push(o.createState());
 			o.restore(h.pop());                    //undo functionality
-			Console.WriteLine(o.getContent());    //d because e is removed
+			Console.WriteLine(o.getContent());     //d because e is removed
 		}
 	}
 }
