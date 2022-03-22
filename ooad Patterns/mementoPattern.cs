@@ -1,16 +1,16 @@
 /*
 
-~ This momento pattern is performed for undo functionality.
--------What is in MOMENTO Pattern?
-  - aik momento ki class bnai jis me hr us datatype ka attribute bnaya jis tarha ka data editor me likha jana aur un sb k getter/setter bna diye.
+~ This memento pattern is performed for undo functionality.
+-------What is in memento Pattern?
+  - aik memento ki class bnai jis me hr us datatype ka attribute bnaya jis tarha ka data editor me likha jana aur un sb k getter/setter bna diye.
   - aik history ki class bnai jis me editor me likhi janay wali hr new text 
     ko sath sath push kia gaya aur undo krny pe pop b kia gaya.
-  - aik editor ki class bnai jis me jb jb data write ho ga us ko momento bna k history
-    me push kia jaye ga aur jb jb data undo ho ga us ko momento bna k restore kia jaye ga.
+  - aik editor ki class bnai jis me jb jb data write ho ga us ko memento bna k history
+    me push kia jaye ga aur jb jb data undo ho ga us ko memento bna k restore kia jaye ga.
 */
 
 
-//EditorStates = Momento
+//EditorStates = memento
 //Editor = Originator
 //History = Caretaker
 
@@ -18,16 +18,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace momentoFinalPattern
+namespace mementoFinalPattern
 {
-	//momento class => This is the class which will contain all the type of data which can be stored in your editor either it is string or char or int etc.
-	class momento
+	//memento class => This is the class which will contain all the type of data which can be stored in your editor either it is string or char or int etc.
+	class memento
 	{
 		private string con;
 		//if any integer you want in editor, then make its attribute here too.
 
 		//constructor
-		public momento(string content)
+		public memento(string content)
 		{
 			this.con = content;
 		}
@@ -38,7 +38,7 @@ namespace momentoFinalPattern
 		}
 	};
 
-	// Editor class => This class will take the reference of momento class.
+	// Editor class => This class will take the reference of memento class.
 	class originator
 	{
 
@@ -55,30 +55,30 @@ namespace momentoFinalPattern
 			return content;
 		}
 
-		public momento createState()  //this function will make your content ready for to be pushed in history(momento).         
+		public memento createState()  //this function will make your content ready for to be pushed in history(memento).         
 		{
-			return (new momento(content));
+			return (new memento(content));
 		}
 
-		//read content through momento
-		public void restore(momento m)    //this function will make you momento, content.
+		//read content through memento
+		public void restore(memento m)    //this function will make you memento, content.
 		{
 			content = m.getCon();
 		}
 	};
 
-	//composition => history class is composed of momento class. This class will add & remove data(momento) in your list.
+	//composition => history class is composed of memento class. This class will add & remove data(memento) in your list.
 	class history
 	{
-		private List<momento> l = new List<momento>();
-		public void push(momento content)
+		private List<memento> l = new List<memento>();
+		public void push(memento content)
 		{
 			l.Add(content);
 		}
-		public momento pop()
+		public memento pop()
 		{
 			int lastIndex = l.Count - 1;
-			momento content = l[lastIndex - 1];
+			memento content = l[lastIndex - 1];
 			l.RemoveAt(lastIndex - 1);
 			return content;
 		}
@@ -93,7 +93,7 @@ namespace momentoFinalPattern
 			history h = new history();
 
 			o.setContent("a");            //content is written in editor.  
-			h.push(o.createState());     //make the momento of your content and save it in history
+			h.push(o.createState());     //make the memento of your content and save it in history
 
 			o.setContent("b");
 			h.push(o.createState());
