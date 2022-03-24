@@ -1,3 +1,5 @@
+//This pattern is used to hide complexity of your program
+
 #include<iostream>
 using namespace std;
 class loadBIOS {
