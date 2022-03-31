@@ -1,6 +1,6 @@
 
 // In strategy pattern, class behavior can be changed at run time. It is more likely polymorphism :)
-
+// On run time, it is decided that which object will perform what?
 
 using System;
 
@@ -11,7 +11,7 @@ namespace StrategyPattern
     {
         public interface Strategy
         {
-            public int doOperation(int num1, int num2);
+            public int doOperation (int num1, int num2);
         }
         public class OperationAdd : Strategy
         {
@@ -22,21 +22,21 @@ namespace StrategyPattern
         }
         public class OperationSubstract : Strategy
         {
-            public int doOperation(int num1, int num2)
+            public int doOperation (int num1, int num2)
             {
                 return num1 - num2;
             }
         }
         public class OperationMultiply : Strategy
         {
-            public int doOperation(int num1, int num2)
+            public int doOperation (int num1, int num2)
             {
                 return num1 * num2;
             }
         }
         public class OperationDivision : Strategy
         {
-            public int doOperation(int num1, int num2)
+            public int doOperation (int num1, int num2)
             {
                 return num1 / num2;
             }
@@ -45,14 +45,14 @@ namespace StrategyPattern
         {
             private Strategy strategy;
 
-            public Context(Strategy strategy)
+            public Context (Strategy strategy)
             {
                 this.strategy = strategy;
             }
 
-            public int executeStrategy(int num1, int num2)
+            public int executeStrategy (int num1, int num2)
             {
-                return strategy.doOperation(num1, num2);
+                return strategy.doOperation (num1, num2);
             }
         }
 
