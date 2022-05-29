@@ -1,6 +1,6 @@
 /*
 
-~ This memento pattern is performed for undo functionality.
+~ This memento pattern is performed for undo functionality. Memento pattern is used to restore state of an object to a previous state. 
 -------What is in memento Pattern?
   - aik memento ki class bnai jis me hr us datatype ka attribute bnaya jis tarha ka data editor me likha jana aur un sb k getter/setter bna diye.
   - aik history ki class bnai jis me editor me likhi janay wali hr new text 
