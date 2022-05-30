@@ -1,6 +1,7 @@
 
 // In strategy pattern, class behavior can be changed at run time. It is more likely polymorphism :)
 // On run time, it is decided that which object will perform what?
+//the classes implementing strategies are also strategy.
 
 using System;
 
